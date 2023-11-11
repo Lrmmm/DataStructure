@@ -1,0 +1,18 @@
+digraph G {
+node [shape=record]
+node_0 [label="<f0> 6"]
+node_1 [label="<f0> 3"]
+node_0:f0:sw -> node_1
+node_2 [label="<f0> 9 | <f1> 13"]
+node_0:f0:se -> node_2
+node_3 [label="<f0> 1 | <f1> 2"]
+node_1:f0:sw -> node_3
+node_4 [label="<f0> 4"]
+node_1:f0:se -> node_4
+node_5 [label="<f0> 7 | <f1> 8"]
+node_2:f0:sw -> node_5
+node_6 [label="<f0> 10"]
+node_2:f0:se -> node_6
+node_7 [label="<f0> 14 | <f1> 16"]
+node_2:f1:se -> node_7
+}

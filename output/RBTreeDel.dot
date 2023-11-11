@@ -1,0 +1,27 @@
+digraph RBTree {
+	node [shape=ellipse, style=filled, fontcolor=white]
+	edge [arrowhead=vee]
+	17	[color=black];
+	8	[color=black];
+	17 -> 8[color=black];
+	40	[color=black];
+	17 -> 40[color=black];
+	5	[color=black];
+	8 -> 5[color=black];
+	10	[color=black];
+	8 -> 10[color=black];
+	18	[color=black];
+	40 -> 18[color=black];
+	80	[color=black];
+	40 -> 80[color=black];
+	3	[color=red];
+	5 -> 3[color=red];
+	9	[color=red];
+	10 -> 9[color=red];
+	15	[color=red];
+	10 -> 15[color=red];
+	36	[color=red];
+	18 -> 36[color=red];
+	55	[color=red];
+	80 -> 55[color=red];
+}

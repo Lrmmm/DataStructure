@@ -1,0 +1,23 @@
+digraph MaxHeap {
+	node [shape=ellipse, style=filled, fontcolor=black]
+	edge [arrowhead=vee]
+	node_0 [label="143"];
+	node_1 [label="136"];
+	node_0 -> node_1;
+	node_2 [label="136"];
+	node_0 -> node_2;
+	node_3 [label="115"];
+	node_1 -> node_3;
+	node_4 [label="133"];
+	node_1 -> node_4;
+	node_5 [label="27"];
+	node_2 -> node_5;
+	node_6 [label="85"];
+	node_2 -> node_6;
+	node_7 [label="42"];
+	node_3 -> node_7;
+	node_8 [label="99"];
+	node_3 -> node_8;
+	node_9 [label="121"];
+	node_4 -> node_9;
+}
