@@ -7,8 +7,14 @@
 #include <algorithm>
 #include "../09MaxPriorityQueue/MaxPriorityQueue.h"
 #include "../09MaxPriorityQueue/MaxHeap.hpp"
+#include <thread>
 using namespace std;
 #define MIL 10000
+// void SelectSort(std::vector<int>& arr) {
+//     // 在这里实现选择排序算法
+//     // ...
+//     std::cout << "Sorting done." << std::endl;
+// }
 void Test11()
 {
     clock_t start,finish;
@@ -18,6 +24,8 @@ void Test11()
 
     for (int i = 0; i < 10000*MIL; i++)
         myArr.push_back(rand());
+    for (int i = 0; i < 10000*MIL; i++)
+        myArr2.push_back(rand());
         // myArr.push_back(i);
     // for (int i = 0; i < (25000*MIL); i++)
     //     myArr2.push_back(rand());
@@ -41,7 +49,7 @@ void Test11()
     // InsertSort_move(myArr);
     // InsertSort_bin(myArr);
     // ShellSort(myArr);
-    quicksort_nrandom::QuickSort(myArr);
+    // quicksort_nrandom::QuickSort(myArr);
     // quicksort_random::QuickSort(myArr);
     // sort(myArr.begin(),myArr.end());
     // heapsort::HeapSort(myArr);
@@ -49,7 +57,10 @@ void Test11()
     // CountSort(myArr,nMin,nMax);
     // radixsort::RadixSort(myArr);
     // BucketSort_Int(myArr,size/1600,nMin,nMax);
-
+    std::thread myThread1(quicksort_random::QuickSort<vector<int>>,std::ref(myArr));
+    std::thread myThread2(quicksort_nrandom::QuickSort<vector<int>>,std::ref(myArr2));
+    myThread1.join();
+    myThread2.join();
     finish=clock();
     cout << "Time: " <<(double)(finish - start) / CLOCKS_PER_SEC << endl;
     cout << "Size: " <<myArr.size() << endl;

@@ -2,7 +2,7 @@
 
 # 编译器和编译选项
 CXX = g++
-CXXFLAGS = -std=c++11 -Wall -O0 -g
+CXXFLAGS = -std=c++11 -Wall -O0 -g -pthread
 
 # 目标文件名
 TARGET = my_program
