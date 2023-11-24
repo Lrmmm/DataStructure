@@ -2,6 +2,17 @@
 #include <vector>
 using namespace std;
 /**
+ * 0-1背包的状态转移方程
+ *  i: 只能放前i个物品 [1...i]
+ *  j: 背包当前的容量
+ *  w(i) : 第i个物品的重量
+ *  1. F[i,j] = max{ F[i-1,j-w(i)] + v(i) , F[i-1,j] } = max{放i物品，不放i物品}
+ *  2. F[j] = max{F[j],F[j-w(i)]+v(i)}
+ *      
+*/
+
+
+/**
  * Recursion Approach for 0/1 Knapsack Problem:
  * 非动态规划解决问题(直接利用递归，会有重复调用)
  *  时间复杂度: O(2^n)
@@ -27,7 +38,7 @@ int KnapSack(const vector<int>& weight, const vector<int>& value, int capacity, 
  *  时间复杂度: O(n*w)
  *  空间复杂度: O(n*w) + O(n) n次递归
 */
-namespace knapsack3{
+namespace knapsack2{
 int KnapSackRec(const vector<int>& weight, const vector<int>& value, int capacity, int index,vector<vector<int>>& dp)
 {
     if (index < 0) return 0;
@@ -66,7 +77,7 @@ int KnapSack(const vector<int>& weight, const vector<int>& value, int capacity){
  *   时间复杂度: O(n*w)
  *   空间复杂度: O(n*w)
 */
-namespace knapsack4{
+namespace knapsack3{
 int KnapSack(const vector<int>& wt, const vector<int>& val,int capacity){
 
     int n = wt.size();
@@ -77,7 +88,7 @@ int KnapSack(const vector<int>& wt, const vector<int>& val,int capacity){
         {
             if (i == 0 || j == 0)
                 dp[i][j] = 0;
-            else if(wt[i -1] <= capacity)
+            else if(wt[i -1] <= j)
                 dp[i][j] = max(val[i-1] + dp[i-1][j-wt[i-1]] , dp[i-1][j]);
             else 
                 dp[i][j] = dp[i-1][j];
@@ -93,8 +104,10 @@ int KnapSack(const vector<int>& wt, const vector<int>& val,int capacity){
  * 不利用递归，自底向上的动态规划, 优化dp数组
  *  时间复杂度: O(n*w)
  *  空间复杂度: O(w)
+ *  1. F[i,j] = max{ F[i-1,j-w(i)] + v(i) , F[i-1,j] } = max{放i物品，不放i物品}
+ *  2. F[j] = max{F[j],F[j-w(i)]+v(i)}
 */
-namespace knapsack5{
+namespace knapsack4{
 
 int KnapSack(const vector<int>& wt, const vector<int>& val,int ca)
 {
@@ -111,13 +124,12 @@ int KnapSack(const vector<int>& wt, const vector<int>& val,int ca)
 
 }
 int main() {
-    vector<int> w = {10,20,30};
-    vector<int> v = {60,100,120};
-    int capacity = 50 ;
-    // cout << knapsack::Knapsack(w,v,capacity) << endl;
+    vector<int> w = {1,2,3};
+    vector<int> v = {6,10,12};
+    int capacity = 5;
     // cout << knapsack1::KnapSack(w,v,capacity,w.size()) << endl;
     // cout << knapsack2::KnapSack(w,v,capacity) << endl;
+    cout << knapsack3::KnapSack(w,v,capacity) << endl;
     // cout << knapsack3::KnapSack(w,v,capacity) << endl;
-    cout << knapsack4::KnapSack(w,v,capacity) << endl;
     return 0;
 }

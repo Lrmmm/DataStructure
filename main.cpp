@@ -53,5 +53,7 @@ int main() {
 #ifdef __Test_11__
     Test11();
 #endif
+    stack<int> a;
+    to_string();
     return 0;
 }
