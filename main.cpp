@@ -1,4 +1,4 @@
-// #define __Test_01__     // List
+#define __Test_01__     // List
 // #define __Test_02__     // Matrix
 // #define __Test_03__     // Stack
 // #define __Test_04__     // Queue
@@ -8,7 +8,7 @@
 // #define __Test_08__     // Tree
 // #define __Test_09__     // MaxPriorityQueue
 // #define __Test_10__     // SearchTree
-#define __Test_11__     // Sort
+// #define __Test_11__     // Sort
 
 #include <iostream>
 #include "include/include.h"
@@ -53,7 +53,6 @@ int main() {
 #ifdef __Test_11__
     Test11();
 #endif
-    stack<int> a;
-    to_string();
+
     return 0;
 }

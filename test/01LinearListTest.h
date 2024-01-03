@@ -3,7 +3,7 @@
 void Test01()
 {
     // Test01 ArrayList
-    ArrayList<int> myArrayList;
+    ArrayList<int> myArrayList(0);
     myArrayList.push_back(1);
     myArrayList.push_back(2);
     myArrayList.push_back(3);
